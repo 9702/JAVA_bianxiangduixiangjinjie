@@ -1,0 +1,28 @@
+package game;
+
+
+public class test {
+	
+	public static void main(String[] args) {
+		Outer.Inner inner = new Outer().new Inner();
+		inner.show();
+		
+		Outer  outer = new Outer();
+		Outer.Inner inn = outer.new Inner();
+	}
+	
+}
+
+class Outer {
+	private int age = 10;
+	
+	 class  Inner {
+		int age = 20;
+		public void show() {
+			int age = 30;
+			System.out.println("外部类的age变量： "+Outer.this.age);
+			System.out.println("内部类的成员变量： "+this.age);
+			System.out.println("内部类方法age的变量： "+age);
+		}
+	}
+}
